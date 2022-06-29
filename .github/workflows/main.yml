@@ -17,7 +17,7 @@ jobs:
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
           PORT: ${{ secrets.SSH_PORT }}
           script: |
-            cd ../var/www/domains/ovz2.wallc.gmzem.vps.myjino.ru
+            cd ../var/www/domains/${{ secrets.SSH_HOST }}
       - name: Copy repository contents via scp
         uses: appleboy/scp-action@master
         env:
