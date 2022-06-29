@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="71d47b8f-9ec7-48f5-ae11-af68ee227c10" name="frontend">
+        <fileTransfer accessType="SFTP" host="ovz2.wallc.gmzem.vps.myjino.ru" port="49279" sshConfigId="8d32e495-9948-4334-947e-4bae6f28f335" sshConfig="root@ovz2.wallc.gmzem.vps.myjino.ru:49279 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

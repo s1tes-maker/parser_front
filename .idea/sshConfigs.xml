@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="ovz2.wallc.gmzem.vps.myjino.ru" id="8d32e495-9948-4334-947e-4bae6f28f335" port="49279" nameFormat="DESCRIPTIVE" username="root" />
+    </configs>
+  </component>
+</project>
