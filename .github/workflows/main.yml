@@ -26,6 +26,6 @@ jobs:
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
           PORT: ${{ secrets.SSH_PORT }}
         with:
-          source: "dist"
+          source: "dist/*"
           target: "/var/www/domains/${{ secrets.SSH_HOST }}"
 
