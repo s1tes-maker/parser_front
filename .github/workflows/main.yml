@@ -29,4 +29,5 @@ jobs:
         with:
           source: "dist/*"
           target: "/var/www/domains/${{ secrets.SSH_HOST }}"
+          strip_components: 1
 
