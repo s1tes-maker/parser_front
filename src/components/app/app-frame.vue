@@ -1,13 +1,18 @@
 <style lang="less"></style>
 <template>
   <div>
-    <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="layoutConfig.siderFixed">
+    <Layout class="app-frame"
+            v-if="!loading"
+            :siderCollapsed="siderCollapsed"
+            :siderFixed="layoutConfig.siderFixed">
       <Sider :theme="layoutConfig.siderTheme">
         <appMenu :theme="layoutConfig.siderTheme"></appMenu>
       </Sider>
       <Layout :headerFixed="layoutConfig.headerFixed">
         <HHeader theme="white">
-          <appHead @openSetting="openSetting = true" :layoutConfig="layoutConfig"></appHead>
+          <appHead @openSetting="openSetting = true"
+                   :layoutConfig="layoutConfig">
+          </appHead>
         </HHeader>
         <SysTabs v-if="layoutConfig.showSystab" homePage="Home"></SysTabs>
         <Content>
@@ -33,7 +38,6 @@ import appHead from './app-header';
 import appMenu from './app-menu';
 import appFooter from './app-footer';
 import SysTabs from '../common/sys-tabs';
-import { isAuthPage, getKeys } from '@js/config/menu-config';
 import Request from '@common/request';
 import { mapState } from 'vuex';
 import { loading, heyuiConfig } from 'heyui';
@@ -84,22 +88,17 @@ export default {
     },
     initMenu() {
 
-        Request.Account.full_menus().then(resp => {
-          if (resp.ok) {
-            this.$store.dispatch('updateFullMenus', resp.body);
-          }
-        });
+      Request.Account.auth_page({page_name: this.$route.name}).then(resp => {
+        if (resp.message == 403) {
+          this.$router.replace({ name: 'PermissionError' });
+        }
+      });
 
        Request.Account.menus().then(resp => {
          if (resp.ok) {
            this.$store.dispatch('updateMenus', resp.body);
-           //this.menuSelect();
          }
        });
-
-      /*if (!isAuthPage(this.$store.fullMenuKeys, this.$store.menuKeys, this.$route.name)) {
-        this.$router.replace({ name: 'PermissionError' });
-      }*/
     }
   },
   computed: {

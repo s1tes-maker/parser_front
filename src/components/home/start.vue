@@ -98,7 +98,7 @@ export default {
     submit() {
       Request.Parser.parse(this.data).then(resp => {
         if (resp.ok) {
-          message('парсер успешно запущен');
+          message('парсер успешно запущен. Номер процесса ' + resp.process_id);
         }
       });
     },

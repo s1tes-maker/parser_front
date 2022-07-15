@@ -23,6 +23,12 @@ const routeConfig = {
           meta: { title: 'Главная', icon: 'icon-monitor', auth: true }
         },
         {
+          path: '/statuses',
+          name: 'statuses',
+          component: () => import('@components/home/statuses'),
+          meta: { title: 'Статусы процессов', icon: 'icon-monitor', auth: true }
+        },
+        {
           path: '/system-error',
           name: 'SystemError',
           component: () => import('@components/error-pages/500'),
@@ -73,9 +79,9 @@ let isFirstRouter = true;
 
 router.beforeEach((to, from, next) => {
 
-  /*if (to.meta && to.meta.auth === true) {
+  if (to.meta && to.meta.auth === true) {
      if (typeof(utils.getLocal('token')) == "undefined" || utils.getLocal('token') == 'null') window.location = '/login';
-  }*/
+  }
   loadingBar.start();
 
   if (to.meta && to.meta.title) {

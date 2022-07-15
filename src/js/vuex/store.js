@@ -9,7 +9,7 @@ export default createStore({
     },
     menus: [],
     menuKeys: [],
-    siderCollapsed: false,
+    siderCollapsed: true,
     pageResizeCount: 0
   },
   mutations: {
@@ -18,6 +18,7 @@ export default createStore({
       state.fullMenuKeys = getKeys(data);
     },
     updateMenus(state, data) {
+      state.fullMenuKeys = getKeys(data);
       state.menus = data;
       state.menuKeys = getKeys(data);
     },

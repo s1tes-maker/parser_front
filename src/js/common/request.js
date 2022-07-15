@@ -23,12 +23,17 @@ const Request = {
       return Ajax.get(`/home/messages`);
     }
   },
+  Statuses: {
+    process_statuses() {
+      return Ajax.get(URL + '/process-statuses');
+    }
+  },
   Account: {
     menus() {
       return Ajax.get(URL + '/main-menu');
     },
-    full_menus() {
-      return Ajax.get(URL + '/main-full-menu');
+    auth_page(param) {
+      return Ajax.get(URL + '/auth-page', param);
     }
   },
   Login: {

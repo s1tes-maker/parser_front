@@ -39,5 +39,7 @@ module.exports = {
     //   target: 'http://xxx.xx.xx'
     // }
     // }
+
+    proxy: 'http://parser.loc'
   }
 };
